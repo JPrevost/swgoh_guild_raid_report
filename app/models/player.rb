@@ -1,12 +1,6 @@
 require 'open-uri'
 # Extracts player info from swgoh.gg
 class Player
-  # https://swgoh.gg/u/jerrocks/collection/
-  def self.collection(player)
-    url = "https://swgoh.gg/u/#{player}/collection/"
-    Nokogiri::HTML(open(url))
-  end
-
   # array of character_name, gear level, level, stars for all active characters
   def self.toons(player)
     collection(player).css(
@@ -14,6 +8,12 @@ class Player
     ).map do |character|
       character_info(character)
     end
+  end
+
+  # https://swgoh.gg/u/jerrocks/collection/
+  def self.collection(player)
+    url = "https://swgoh.gg/u/#{player}/collection/"
+    Nokogiri::HTML(open(url))
   end
 
   # array of character_name, gear level, level, stars for a single character
