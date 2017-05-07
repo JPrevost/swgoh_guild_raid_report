@@ -1,3 +1,10 @@
+require 'simplecov'
+require 'coveralls'
+SimpleCov.formatters = [
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
+SimpleCov.start('rails')
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 
@@ -6,6 +13,9 @@ module ActiveSupport
     # Setup all fixtures in test/fixtures/*.yml for all tests in alpha order.
     fixtures :all
 
-    # Add more helper methods to be used by all tests here...
+    VCR.configure do |config|
+      config.cassette_library_dir = 'test/vcr_cassettes'
+      config.hook_into :webmock
+    end
   end
 end

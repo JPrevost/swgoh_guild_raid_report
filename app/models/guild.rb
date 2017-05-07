@@ -9,8 +9,6 @@ class Guild
     end
   end
 
-  private
-
   # guild page from swgoh.gg
   # ex: https://swgoh.gg/g/18353/ndtive-wdy-allidnce/
   def self.roster(guild_url)
