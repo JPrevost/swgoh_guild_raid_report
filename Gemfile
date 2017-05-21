@@ -22,6 +22,11 @@ group :development do
   gem 'web-console'
 end
 
+group :production do
+  gem 'dalli'
+  gem 'memcachier'
+end
+
 group :test do
   gem 'coveralls', require: false
   gem 'vcr'
