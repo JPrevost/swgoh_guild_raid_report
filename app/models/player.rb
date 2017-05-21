@@ -3,10 +3,12 @@ require 'open-uri'
 class Player
   # array of character_name, gear level, level, stars for all active characters
   def self.toons(player)
-    collection(player).css(
-      '.collection-char:not(.collection-char-missing)'
-    ).map do |character|
-      character_info(character)
+    Rails.cache.fetch(player) do
+      collection(player).css(
+        '.collection-char'
+      ).map do |character|
+        character_info(character)
+      end
     end
   end
 

@@ -1,0 +1,29 @@
+<% @haat.sort.each do |player| %>
+  <div class="row">
+    <h1><%= player[0] %></h1>
+    <% player[1].each do |phase| %>
+      <h2><%= phase[0] %></h2>
+      <% phase[1].each do |team| %>
+        <div class="col-sm-3">
+          <h2><%= team[0] %></h2>
+          <table>
+            <tr>
+              <th>Toon</th>
+              <th>Stars</th>
+              <th>Level</th>
+              <th>Gear</th>
+            </tr>
+            <% team[1].each do |toon| %>
+              <tr>
+                <td><%= toon[0] %></td>
+                <td <%= star_class(toon[3]) %>><%= toon[3] %></td>
+                <td <%= level_class(toon[2]) %>><%= toon[2] %></td>
+                <td <%= gear_class(toon[1]) %>><%= toon[1] %></td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

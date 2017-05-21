@@ -6,6 +6,7 @@ gem 'rails', '5.1.0'
 gem 'sass-rails'
 gem 'sqlite3'
 gem 'therubyracer', platforms: :ruby
+gem 'turbolinks'
 gem 'uglifier'
 
 group :development, :test do

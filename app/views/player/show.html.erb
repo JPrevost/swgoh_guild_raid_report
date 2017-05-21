@@ -1,0 +1,23 @@
+<% @haat.each do |phase| %>
+  <h1><%= phase[0] %></h1>
+
+  <% phase[1].each do |team| %>
+    <h2><%= team[0] %></h2>
+    <table>
+      <tr>
+        <th>Toon</th>
+        <th>Stars</th>
+        <th>Level</th>
+        <th>Gear</th>
+      </tr>
+      <% team[1].each do |toon| %>
+        <tr>
+          <td><%= toon[0] %></td>
+          <td <%= star_class(toon[3]) %>><%= toon[3] %></td>
+          <td <%= level_class(toon[2]) %>><%= toon[2] %></td>
+          <td <%= gear_class(toon[1]) %>><%= toon[1] %></td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+<% end %>
