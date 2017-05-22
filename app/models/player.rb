@@ -14,7 +14,7 @@ class Player
 
   # https://swgoh.gg/u/jerrocks/collection/
   def self.collection(player)
-    url = "https://swgoh.gg/u/#{player}/collection/"
+    url = "https://swgoh.gg/u/#{player[1]}/collection/"
     Nokogiri::HTML(open(url))
   end
 

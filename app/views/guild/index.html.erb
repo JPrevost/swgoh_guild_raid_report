@@ -1,6 +1,6 @@
-<% @haat.sort.each do |player| %>
+<% @haat.each do |player| %>
   <div class="row">
-    <h1><%= player[0] %></h1>
+    <h1><%= link_to(player[0][0], "https://swgoh.gg/u/#{player[0][1]}/") %></h1>
     <% player[1].each do |phase| %>
       <h2><%= phase[0] %></h2>
       <% phase[1].each do |team| %>

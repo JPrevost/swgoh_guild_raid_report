@@ -1,7 +1,7 @@
 class GuildController < ApplicationController
   def index
     guild = Guild.players('https://swgoh.gg/g/18353/ndtive-wdy-allidnce/')
-    @haat = haat_roster_check(guild)
+    @haat = haat_roster_check(guild).sort_by { |x, _y| x[0].downcase }
   end
 
   def haat_roster_check(guild)
