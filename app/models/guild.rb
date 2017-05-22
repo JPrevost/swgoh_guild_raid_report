@@ -6,7 +6,8 @@ class Guild
   def self.players(guild_url)
     Rails.cache.fetch(guild_url) do
       roster(guild_url).css('table td:first').map do |player|
-        player.css('a @href').to_s.split('/').last
+        [player.css('a').text,
+         player.css('a @href').to_s.split('/').last]
       end
     end
   end

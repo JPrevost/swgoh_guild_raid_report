@@ -41,7 +41,6 @@ class Haat
         stuff[phase[0]][team[0]] = team_check(team, toons)
       end
     end
-    Rails.logger.debug(stuff)
     stuff
   end
 
